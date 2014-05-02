@@ -1,0 +1,9 @@
+var product_str = '<li id="item-<%= @current_product.id %>"><%= j @current_product.product.title %> x <%=
+@current_product.quantity %></li>';
+var current_product = $('#item-<%= @current_product.id %>');
+
+if (current_product.size() > 0) {
+  current_product.replaceWith(product_str);
+} else {
+  $('#cart-items').append(product_str);
+}
