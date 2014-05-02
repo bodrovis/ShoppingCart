@@ -24,6 +24,12 @@ group :development do
   gem 'annotate'
 end
 
+group :test do
+  gem 'cucumber-rails'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
+end
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-ui-rails'

@@ -12,26 +12,7 @@
 </div>
 
 <div class="row">
-  <div class="col-sm-4" id="cart">
-    <div class="well well-lg">
-      <h3>Your cart</h3>
-
-      <% if current_user %>
-        <ul id="cart-items">
-          <% current_user.cart_items.each do |item| %>
-            <li id="item-<%= item.id %>">
-              <%= item.product.title %> x <span class="quantity"><%= item.quantity %></span>
-              <%= link_to '[x]', remove_from_cart_path(item), method: :post, remote: true %>
-            </li>
-          <% end %>
-        </ul>
-
-        <%= link_to 'Checkout', checkout_path, class: 'btn btn-lg btn-primary', method: :post %>
-      <% else %>
-        <p>Please sign in to begin shopping.</p>
-      <% end %>
-    </div>
-  </div>
+  <%= render 'cart' %>
 
   <div class="col-sm-8">
     <table class="table table-striped table-hover">
