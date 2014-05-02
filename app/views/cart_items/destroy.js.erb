@@ -1,0 +1,7 @@
+var item = $('#item-<%= @removed_item.id %>');
+<% if @removed_item.destroyed? %>
+item.fadeOut();
+<% else %>
+item.find('.quantity').text('<%= @removed_item.quantity %>');
+item.effect('highlight', 500);
+<% end %>

@@ -27,6 +27,16 @@ class User < ActiveRecord::Base
     current_product
   end
 
+  def remove_from_cart(item)
+    if item.quantity == 1
+      item.destroy
+    else
+      item.quantity -= 1
+      item.save
+    end
+    item
+  end
+
   def self.from_omniauth(auth)
     info = auth['info']
 

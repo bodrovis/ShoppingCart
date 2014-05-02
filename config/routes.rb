@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   post '/add_to_cart/:product_id', to: 'cart_items#create', as: :add_to_cart
+  post '/remove_from_cart/:product_id', to: 'cart_items#destroy', as: :remove_from_cart
   post '/checkout', to: 'cart_items#checkout', as: :checkout
 
   get '/auth/:provider/callback', to: 'sessions#create'

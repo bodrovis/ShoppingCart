@@ -1,9 +1,13 @@
-var product_str = '<li id="item-<%= @current_product.id %>"><%= j @current_product.product.title %> x <%=
-@current_product.quantity %></li>';
+var product_str = $('<li id="item-<%= @current_product.id %>">' +
+        '<%= @current_product.product.title %> x <span class="quantity"><%= @current_product.quantity %></span> ' +
+        '<%= link_to '[x]', remove_from_cart_path(@current_product), method: :post, remote: true %>' +
+        '</li>');
+
 var current_product = $('#item-<%= @current_product.id %>');
 
 if (current_product.size() > 0) {
-  current_product.replaceWith(product_str);
+  current_product = current_product.replaceWith(product_str);
 } else {
-  $('#cart-items').append(product_str);
+  current_product = $('#cart-items').append(product_str);
 }
+product_str.effect('highlight', 500);
