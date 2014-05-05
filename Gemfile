@@ -25,9 +25,13 @@ group :development do
 end
 
 group :test do
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', require: false
+  gem 'rspec-rails', require: false
   gem 'selenium-webdriver'
   gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'rack_session_access', git: 'https://github.com/railsware/rack_session_access.git'
+  gem 'capybara', '>= 2.2.1'
 end
 
 # Use jquery as the JavaScript library

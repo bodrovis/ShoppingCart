@@ -11,4 +11,10 @@ rake db:seed
 rails s
 ```
 
+Run the Cucumber tests:
+
+```
+bundle exec cucumber
+```
+
 (c) 2014 Ilya Bodrov
